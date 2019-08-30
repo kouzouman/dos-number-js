@@ -1,1 +1,1 @@
-module.exports = require("./src/dos-number.js");
+module.exports = require("./dist/dos-number.js");

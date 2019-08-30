@@ -1,6 +1,6 @@
 {
   "name": "dos-number-js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Prototype extension for javascript Number type.",
   "main": "index.js",
   "repository": "https://github.com/kouzouman/dos-number-js.git",
