@@ -1,5 +1,7 @@
 "use strict";
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var _dosCommonJs = require("dos-common-js");
 
 var _dosCommonJs2 = _interopRequireDefault(_dosCommonJs);
@@ -18,4 +20,20 @@ _dosCommonJs2.default.extendMethod(Number, "toNumber", function () {
  */
 _dosCommonJs2.default.extendMethod(Number, "toString", function () {
   return this + "";
+});
+
+/**
+ * 数値分の配列を生成
+ */
+_dosCommonJs2.default.extendMethod(Number, "createArray", function (seed) {
+  var result = [];
+  for (var i = 0; i < this; i++) {
+    var inputVal = null;
+    if ((typeof seed === "undefined" ? "undefined" : _typeof(seed)).toLowerCase() == "function") inputVal = seed(i);
+
+    if ((typeof seed === "undefined" ? "undefined" : _typeof(seed)).toLowerCase() != "function") inputVal = seed;
+
+    result.push(inputVal);
+  }
+  return result;
 });

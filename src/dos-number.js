@@ -13,3 +13,19 @@ cf.extendMethod(Number, "toNumber", function() {
 cf.extendMethod(Number, "toString", function() {
   return this + "";
 });
+
+/**
+ * 数値分の配列を生成
+ */
+cf.extendMethod(Number, "createArray", function(seed) {
+  let result = [];
+  for (let i = 0; i < this; i++) {
+    let inputVal = null;
+    if ((typeof seed).toLowerCase() == "function") inputVal = seed(i);
+
+    if ((typeof seed).toLowerCase() != "function") inputVal = seed;
+
+    result.push(inputVal);
+  }
+  return result;
+});
