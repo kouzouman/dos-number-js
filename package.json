@@ -1,6 +1,6 @@
 {
   "name": "dos-number-js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Prototype extension for javascript Number type.",
   "main": "index.js",
   "repository": "https://github.com/kouzouman/dos-number-js.git",
@@ -14,7 +14,7 @@
     "jest": "^24.9.0"
   },
   "dependencies": {
-    "dos-common-js": "0.1.0"
+    "dos-common-js": "0.2.0"
   },
   "scripts": {
     "build": "node ./build.js",
