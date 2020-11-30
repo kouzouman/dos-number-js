@@ -37,3 +37,13 @@ _dosCommonJs2.default.extendMethod(Number, "createArray", function (seed) {
   }
   return result;
 });
+
+/**
+ * 数値分の配列を生成
+ */
+_dosCommonJs2.default.extendMethod(Number, "times", function (func) {
+  var arr = this.createArray(0);
+  return arr.map(function (v, i) {
+    return func(i);
+  });
+});

@@ -7,9 +7,15 @@ test("toString", () => {
 
 test("createArray", () => {
   const times = 10;
-  const arr = times.createArray(i => 2000 + i);
+  const arr = times.createArray((i) => 2000 + i);
   console.log(arr);
   for (let i = 0; i < 10; i++) {
     expect(arr[i]).toBe(2000 + i);
   }
+});
+
+test("createArray", () => {
+  const seed = 10;
+  const res = seed.times((i) => i);
+  res.forEach((v, i) => expect(v).toBe(i));
 });
