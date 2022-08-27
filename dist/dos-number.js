@@ -23,6 +23,51 @@ _dosCommonJs2.default.extendMethod(Number, "toString", function () {
 });
 
 /**
+ * digitでしていた桁数になるように四捨五入する
+ */
+_dosCommonJs2.default.extendMethod(Number, "round", function () {
+  var digit = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+  var digitKei = Math.pow(10, digit);
+  var tmp = Math.round(this / digitKei) * digitKei;
+  var divs = (tmp + "").split(".");
+  if (divs.length > 1 && divs[1].length > digit * -1) {
+    return divs[0] + '.' + divs[1].slice(0, -1 * digit) - 0;
+  }
+  return tmp;
+});
+
+/**
+ * digitでしていた桁数になるように切り捨てる
+ */
+_dosCommonJs2.default.extendMethod(Number, "floor", function () {
+  var digit = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+  var digitKei = Math.pow(10, digit);
+  var tmp = Math.floor(this / digitKei) * digitKei;
+  var divs = (tmp + "").split(".");
+  if (divs.length > 1 && divs[1].length > digit * -1) {
+    return divs[0] + "." + divs[1].slice(0, -1 * digit) - 0;
+  }
+  return tmp;
+});
+
+/**
+ * digitでしていた桁数になるように切り上げる
+ */
+_dosCommonJs2.default.extendMethod(Number, "ceil", function () {
+  var digit = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+  var digitKei = Math.pow(10, digit);
+  var tmp = Math.ceil(this / digitKei) * digitKei;
+  var divs = (tmp + "").split(".");
+  if (divs.length > 1 && divs[1].length > digit * -1) {
+    return divs[0] + "." + divs[1].slice(0, -1 * digit) - 0;
+  }
+  return tmp;
+});
+
+/**
  * 数値分の配列を生成
  */
 _dosCommonJs2.default.extendMethod(Number, "createArray", function (seed) {

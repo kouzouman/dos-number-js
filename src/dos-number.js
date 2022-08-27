@@ -15,6 +15,45 @@ cf.extendMethod(Number, "toString", function () {
 });
 
 /**
+ * digitでしていた桁数になるように四捨五入する
+ */
+cf.extendMethod(Number, "round", function (digit=0) {
+  const digitKei = Math.pow(10, digit)
+  const tmp = Math.round(this / digitKei) * digitKei;
+  const divs = (tmp + "").split(".");
+  if (divs.length > 1 && divs[1].length  > digit * -1) {
+    return divs[0] + '.' + divs[1].slice(0, (-1*digit)) - 0
+  }
+  return tmp
+})
+
+/**
+ * digitでしていた桁数になるように切り捨てる
+ */
+cf.extendMethod(Number, "floor", function (digit=0) {
+  const digitKei = Math.pow(10, digit)
+  const tmp = Math.floor(this / digitKei) * digitKei;
+  const divs = (tmp + "").split(".");
+  if (divs.length > 1 && divs[1].length > digit * -1) {
+    return divs[0] + "." + divs[1].slice(0, -1 * digit) - 0;
+  }
+  return tmp
+})
+
+/**
+ * digitでしていた桁数になるように切り上げる
+ */
+cf.extendMethod(Number, "ceil", function (digit=0) {
+  const digitKei = Math.pow(10, digit)
+  const tmp = Math.ceil(this / digitKei) * digitKei;
+  const divs = (tmp + "").split(".");
+  if (divs.length > 1 && divs[1].length > digit * -1) {
+    return divs[0] + "." + divs[1].slice(0, -1 * digit) - 0;
+  }
+  return tmp
+})
+
+/**
  * 数値分の配列を生成
  */
 cf.extendMethod(Number, "createArray", function (seed) {
